@@ -129,8 +129,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .filter(|(id, _)| node_ids.contains(id))
             .collect();
 
-        serde_json::to_writer_pretty(BufWriter::new(File::create(nodes_json_path)?), &nodes)?;
-        serde_json::to_writer_pretty(BufWriter::new(File::create(adj_list_json_path)?), &adj_list)?;
+        serde_json::to_writer(BufWriter::new(File::create(nodes_json_path)?), &nodes)?;
+        serde_json::to_writer(BufWriter::new(File::create(adj_list_json_path)?), &adj_list)?;
     }
 
     println!(
